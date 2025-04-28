@@ -38,18 +38,81 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+Full adder
+
+![image](https://github.com/user-attachments/assets/12d4b6b6-9dd9-4e19-a938-a491e4727883)
+
+Full subtractor
+
+![image](https://github.com/user-attachments/assets/28aa22d5-2bd5-45b8-97fb-a0a1f3527c84)
+
+
 **Procedure**
 
-Write the detailed procedure here
+ Full Adder: Open Quartus II and create a new project. Use schematic design entry to
+ draw the full adder circuit. The circuit consists of XOR, AND, and OR gates. Compile the
+ design, verify its functionality through simulation. Implement the design on the target
+ device and program it. Full Subtractor: Follow the same steps as for the full adder. Draw
+ the full subtractor circuit using schematic design. The circuit includes XOR, AND, OR
+ gates to perform subtraction. Compile, simulate, implement, and program the design
+ similarly to the full adder
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+    //expt4a-full adder
+    module ex4a(sum, cout, a, b, cin);
+        output sum;
+        output cout;
+        input a;
+        input b;
+        input cin;
+    
+           wire w1,w2,w3;
+           assign w1=a^b;
+           assign w2=a&b;
+           assign w3=w1&cin;
+           assign sum=w1^cin;
+           assign cout=w2|w3;
+    endmodule
+    
+    //exp-4b-full subtractor
+    module ex4b(df, bo, a, b, bin);
+        output df;
+        output bo;
+        input a;
+        input b;
+        input bin;
+    
+           wire w1,w2,w3;
+           assign w1=a^b;
+           assign w2=(~a&b);
+           assign w3=(~w1&bin);
+           assign df=w1^bin;
+           assign bo=w2|w3;
+    endmodule
+
+ Developed by:Tharun.R RegisterNumber:212224240172
+
 
 **RTL Schematic**
 
+full adder
+
+
+![image](https://github.com/user-attachments/assets/aaef06f4-a8b7-4ffb-83ba-72565f1394f5)
+
+full subtractor
+
+
+![image](https://github.com/user-attachments/assets/11806dd1-4469-490d-bbe8-1aeab57bc136)
+
+
+
 **Output Timing Waveform**
+
+
+![image](https://github.com/user-attachments/assets/3fd313ef-729c-44e5-b7a7-b7ab4d4ab3fc)
+
 
 **Result:**
 
